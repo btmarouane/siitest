@@ -37,21 +37,17 @@ public class Vehicles {
 		}
 		
 		Set<String> closedDoorsSet = new HashSet<String>(Arrays.asList(closedDoors.split(" ")));
-		//Set<String> openDoors = Sets.difference(doorsSet, closedDoorsSet);
 
-		//System.out.print(openDoors);
 		doorsSet.removeAll(closedDoorsSet);
-		//System.out.print(doorsSet);
 		if(!doorsSet.isEmpty()) {
 			result += "DOORS KO, BLOCKED \n"+
 						"  _\n";
 			for(int i=1; i< 5; i++) {
 				if(doorsSet.contains(String.valueOf(i))) {
-					//System.out.print(i);
 					result += (i%2==0)?"\\\n":" /";
 				}
 				else {
-					result += (i%2==0)?"|\n":(i==3)?" |":" | ";
+					result += (i%2==0)?(i!=4)?"|\n":"|":(i==3)?" |":" | ";
 				}
 				
 				result += i==3?"_":"";
